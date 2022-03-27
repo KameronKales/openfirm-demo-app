@@ -9,6 +9,10 @@ var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
 var _ApiResponse = _interopRequireDefault(require("../model/ApiResponse"));
 
+var _MerchantQueue = _interopRequireDefault(require("../model/MerchantQueue"));
+
+var _QueueTransaction = _interopRequireDefault(require("../model/QueueTransaction"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72,6 +76,41 @@ var TransactionsApi = /*#__PURE__*/function () {
       var accepts = ['application/json'];
       var returnType = _ApiResponse["default"];
       return this.apiClient.callApi('/v1/transactions/classify', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null, callback);
+    }
+    /**
+     * Callback function to receive the result of the queueTransaction operation.
+     * @callback module:api/TransactionsApi~queueTransactionCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/QueueTransaction} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Classify Transaction by Merchant
+     * Returns a single merchant
+     * @param {module:model/MerchantQueue} merchantQueue The merchant to identify
+     * @param {module:api/TransactionsApi~queueTransactionCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/QueueTransaction}
+     */
+
+  }, {
+    key: "queueTransaction",
+    value: function queueTransaction(merchantQueue, callback) {
+      var postBody = merchantQueue; // verify the required parameter 'merchantQueue' is set
+
+      if (merchantQueue === undefined || merchantQueue === null) {
+        throw new Error("Missing the required parameter 'merchantQueue' when calling queueTransaction");
+      }
+
+      var pathParams = {};
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+      var authNames = ['api_key'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = _QueueTransaction["default"];
+      return this.apiClient.callApi('/v1/transactions/classify/queue', 'POST', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null, callback);
     }
   }]);
 

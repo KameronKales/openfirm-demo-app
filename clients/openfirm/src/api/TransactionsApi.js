@@ -14,6 +14,8 @@
 
 import ApiClient from "../ApiClient";
 import ApiResponse from '../model/ApiResponse';
+import MerchantQueue from '../model/MerchantQueue';
+import QueueTransaction from '../model/QueueTransaction';
 
 /**
 * Transactions service.
@@ -72,6 +74,48 @@ export default class TransactionsApi {
       let returnType = ApiResponse;
       return this.apiClient.callApi(
         '/v1/transactions/classify', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the queueTransaction operation.
+     * @callback module:api/TransactionsApi~queueTransactionCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/QueueTransaction} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Classify Transaction by Merchant
+     * Returns a single merchant
+     * @param {module:model/MerchantQueue} merchantQueue The merchant to identify
+     * @param {module:api/TransactionsApi~queueTransactionCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/QueueTransaction}
+     */
+    queueTransaction(merchantQueue, callback) {
+      let postBody = merchantQueue;
+      // verify the required parameter 'merchantQueue' is set
+      if (merchantQueue === undefined || merchantQueue === null) {
+        throw new Error("Missing the required parameter 'merchantQueue' when calling queueTransaction");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['api_key'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = QueueTransaction;
+      return this.apiClient.callApi(
+        '/v1/transactions/classify/queue', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

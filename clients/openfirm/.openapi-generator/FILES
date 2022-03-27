@@ -1,10 +1,11 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/ApiResponse.md
+docs/MerchantQueue.md
 docs/Pong.md
+docs/QueueTransaction.md
 docs/StatusApi.md
 docs/TransactionsApi.md
 git_push.sh
@@ -15,8 +16,6 @@ src/api/StatusApi.js
 src/api/TransactionsApi.js
 src/index.js
 src/model/ApiResponse.js
+src/model/MerchantQueue.js
 src/model/Pong.js
-test/api/StatusApi.spec.js
-test/api/TransactionsApi.spec.js
-test/model/ApiResponse.spec.js
-test/model/Pong.spec.js
+src/model/QueueTransaction.js

@@ -121,12 +121,15 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OpenfirmApi.StatusApi* | [**ping**](docs/StatusApi.md#ping) | **GET** /ping | Service Status
 *OpenfirmApi.TransactionsApi* | [**classifyMerchantByTransaction**](docs/TransactionsApi.md#classifyMerchantByTransaction) | **GET** /v1/transactions/classify | Classify Transaction by Merchant
+*OpenfirmApi.TransactionsApi* | [**queueTransaction**](docs/TransactionsApi.md#queueTransaction) | **POST** /v1/transactions/classify/queue | Classify Transaction by Merchant
 
 
 ## Documentation for Models
 
  - [OpenfirmApi.ApiResponse](docs/ApiResponse.md)
+ - [OpenfirmApi.MerchantQueue](docs/MerchantQueue.md)
  - [OpenfirmApi.Pong](docs/Pong.md)
+ - [OpenfirmApi.QueueTransaction](docs/QueueTransaction.md)
 
 
 ## Documentation for Authorization

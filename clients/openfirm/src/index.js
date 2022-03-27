@@ -14,7 +14,9 @@
 
 import ApiClient from './ApiClient';
 import ApiResponse from './model/ApiResponse';
+import MerchantQueue from './model/MerchantQueue';
 import Pong from './model/Pong';
+import QueueTransaction from './model/QueueTransaction';
 import StatusApi from './api/StatusApi';
 import TransactionsApi from './api/TransactionsApi';
 
@@ -64,10 +66,22 @@ export {
     ApiResponse,
 
     /**
+     * The MerchantQueue model constructor.
+     * @property {module:model/MerchantQueue}
+     */
+    MerchantQueue,
+
+    /**
      * The Pong model constructor.
      * @property {module:model/Pong}
      */
     Pong,
+
+    /**
+     * The QueueTransaction model constructor.
+     * @property {module:model/QueueTransaction}
+     */
+    QueueTransaction,
 
     /**
     * The StatusApi service constructor.

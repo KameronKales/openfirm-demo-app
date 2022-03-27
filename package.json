@@ -6,7 +6,8 @@
     "start": "next start",
     "lint": "next lint",
     "generate:client": "npx @openapitools/openapi-generator-cli generate -i https://www.openfirm.co/openapi.yaml --enable-post-process-file -g javascript -o clients/openfirm",
-    "postinstall": "cd clients/openfirm && yarn install"
+    "postinstall": "cd clients/openfirm && yarn install && yarn build",
+    "update:client": "yarn generate:client && cd clients/openfirm && yarn build"
   },
   "dependencies": {
     "next": "12.1.0",
